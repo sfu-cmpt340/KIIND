@@ -1,0 +1,14 @@
+.nav {
+  overflow: hidden;
+  background-color: springgreen;
+}
+
+.nav a {
+  float: right;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  color: snow;
+  background-color: grey;
+}

@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: serif;
+  font-size: 18;
+  color: snow;
+  background-color: skyblue;
+  line-height: 1.6;
+}
+
+#text h1 {
+  line-height: 1.2;
+}
+#text {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:center ;
+  align-items: center;
+  text-align: center;
+  padding: 0px 20px;
+}
+
+.nav {
+  overflow: hidden;
+  background-color: springgreen;
+}
+
+.nav a {
+  float: right;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  color: snow;
+  background-color: grey;
+}
