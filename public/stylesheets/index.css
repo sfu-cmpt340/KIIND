@@ -36,6 +36,7 @@ mark.white {
 
 #aboutSection{
   max-width: 50%;
+  min-width: 45%;
   float: left;
   margin-right:25px;
 
