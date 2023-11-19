@@ -33,7 +33,7 @@ p, h1, h2, h3, li {
 
 #smallSect1{
   float: left;
-  background-image: url('acltear2.png');
+  background-image: url('acltear3.png');
   /* background-image: url('acltear.jpg'); */
 
   background-size: cover;
@@ -50,7 +50,7 @@ p, h1, h2, h3, li {
 #smallSect2{
   float: left;
   margin-top: 20px;
-  background-image: url('meniscus-tear.jpg');
+  background-image: url('meniscustear2.png');
   background-size: cover;
   width: 28%;
   height: 46vh;
@@ -61,7 +61,7 @@ p, h1, h2, h3, li {
 }
 
 #smallSect2:hover{
-  box-shadow: 0 0 11px rgba(16, 15, 15, 0.5); 
+  box-shadow: 0 0 11px rgba(16, 15, 15, 0.3); 
 }
 
 .sectTitle {
