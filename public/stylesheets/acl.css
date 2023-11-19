@@ -53,8 +53,11 @@
     height: 25vh;
     border-radius: 10px;
     /* transition-duration: .3s; */
+    background-color: rgba(38, 107, 128, 0.2);
+
     background-color: rgba(0, 0, 0, 0.2);
-    /* background-color: rgba(32, 102, 182, 0.271); */
+    background-color: rgba(106, 106, 106, 0.2);
+
 
     box-shadow: 0 0 11px rgba(16, 15, 15, 0.3); 
 
@@ -75,8 +78,8 @@
     height: 65vh;
     border-radius: 10px;
     /* transition-duration: .3s; */
-    /* background-color: rgba(112, 185, 230, 0.2); */
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(38, 107, 128, 0.2);
+    background-color: rgba(106, 106, 106, 0.2);
 
     box-shadow: 0 0 11px rgba(16, 15, 15, 0.3); 
     margin-top: 20px;
@@ -102,7 +105,7 @@
   
 
 #infoButton  {
-    background-color: grey;
+    background-color: #006080;
     border: solid transparent;
     border-radius: 15px;
     border-width: 0 0 4px;
@@ -123,9 +126,9 @@
 
 
   
-  #infoButton:after{
+#infoButton:after{
     background-clip: padding-box;
-    background-color: darkgrey;
+    background-color: #007399;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -143,7 +146,7 @@
     filter: brightness(1.05);
   }
   
-  #infoButton:active,  input::file-selector-button:active {
+  #infoButton:active {
     border-width: 4px 0 0;
     background: none;
   }
@@ -152,9 +155,15 @@
     padding: 20px;
     
   }
+
+  input[type="file"]:active{
+    filter: brightness(0.8);
+    
+    
+  }
   
   input::file-selector-button {
-    background-color: darkgrey;
+    background-color: #007399;
     border: solid transparent;
     border-radius: 15px;
     border-width: 0 0 4px;
@@ -166,9 +175,9 @@
     transition: filter .2s;
   }
 
-  input::file-selector-button:after {
+  /* input::file-selector-button:after {
     background-clip: padding-box;
-    background-color: grey;
+    background-color: #007399;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -179,5 +188,5 @@
     right: 0;
     top: 0;
     z-index: -1;
-  }
+  } */
   

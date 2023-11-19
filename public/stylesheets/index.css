@@ -1,5 +1,7 @@
 #bigSect{
-  background-image: url('brain.jpg');
+  /* background-image: url('brain.jpg'); */
+  background-image: url('nn3.png');
+
   width: 69%;
   height: 95vh;
   background-size: cover;
@@ -22,9 +24,10 @@ p, h1, h2, h3, li {
 #pageTitle {
   padding-left: 10px;
   padding-top: 10px;
-  font-size: 48px;
-  margin-top: 0px;
+  font-size: 56px;
+  margin: 20px;
   text-shadow: 5px 5px #558ABB;
+  text-shadow: 1px 1px 2px black;
   color: white;
   /* font-family: "Lato"; */
   font-family: Monaco;
@@ -72,7 +75,7 @@ p, h1, h2, h3, li {
 
 
 #infoButton  {
-  background-color: #3399ff;
+  background-color: #006080;
   border: solid transparent;
   border-radius: 15px;
   border-width: 0 0 4px;
@@ -94,7 +97,7 @@ p, h1, h2, h3, li {
 
 #infoButton:after {
   background-clip: padding-box;
-  background-color: #66b3ff;
+  background-color: #007399;
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
