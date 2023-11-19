@@ -82,11 +82,12 @@ p, h1, h2, h3, li {
   padding: 15px;
   transform: translateZ(0);
   transition: filter .2s;
-  width: 125px;
-  position:absolute;
-  left: 3%;
-  top: 22%;
-  width: 200px;
+  width: 400px;
+  height: 80px;
+  position: absolute;
+  font-size: 24px;
+  left: 21%;
+  top: 80%;
   /* box-shadow: 3px 3px #3399ff, -1em 0 .4em lightblue; */
   /* box-shadow: 10px 5px 5px lightblue; */
 }

@@ -19,6 +19,8 @@ app.get('/', (req, res) => res.render('pages/index'));
 // pages
 app.get("/acl", (req, res) => res.render("pages/acl"));
 app.get("/meniscus", (req, res) => res.render("pages/meniscus"));
+app.get("/about", (req, res) => res.render("pages/about"));
+
 
 
 
