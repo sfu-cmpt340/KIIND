@@ -4,52 +4,34 @@
     <title>Main Page</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./stylesheets/index.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
   </head>
 <body>
-    <nav class="topbar">
-        
-        <p class="pageTitle"> Neural Network <mark class="white">For Knee Injury Diagnosis</mark>
-        </p>
-        
-    </nav>
-    <section class="sect">
-        <section id="aboutSection">
-            <h2> About</h2>
-            <section id="aboutText">
-                
-                <p>
-                    A quick intro about our project.
-                </p>
 
-            </section>
-        </section>
-        
-        <section id="mainmenu">
-            <h2> Main Menu</h2>
-            <section id="links">
-                <ul>
-                    <li id="link1"><a href="/acl">ACL</a></li>
-                    <section class="hide">
-                        <h3>Detecting ACL tears</h3>
-                        <p class="description">
-                            Blah blah blah
-                        </p>
-                        
-                    </section>
-                    <li id="link2"><a href="/meniscus">Meniscus</a></li>
-                    <section class="hide">
-                        <h3>Detecting meniscus degeneration and tears</h3>
-                        <p class="description">
-                            More blah blah
-                        </p>
-                        
-                    </section>
-                </ul>
-            </section>
-            
-    
-    
-        </section>
+    <div id="bigSect">
+      <h1 id="pageTitle">Neural Network For Knee Injury Diagnosis</h1>
+      <button id="infoButton">
+        About the Project
+      </button>
+    </div>
+
+    <a href="/acl">
+    <div id="smallSect1">
+      <h1 class="sectTitle">ACL Tears</h1>
+
+
+    </div>
+    </a>
+
+    <a href="/meniscus">
+    <div id="smallSect2">
+      <h1 class="sectTitle">Meniscus Injuries</h1>
+      
+    </div>
+    </a>
+
+
 
     </section>
     
