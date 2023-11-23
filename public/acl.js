@@ -35,9 +35,10 @@ function storeFile(event){
         .then(data => {
         console.log('Prediction:', data);
         })
-        .catch(error => {
-        console.error('Error:', error);
-    });
+    //     .catch(error => {
+    //     console.error('Error:', error);
+    // })
+    ;
 
 
 }

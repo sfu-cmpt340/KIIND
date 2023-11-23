@@ -96,7 +96,7 @@ def createGIF():
     # Convert to a format that can be easily transmitted
     data_json = data.tolist()
 
-    return "hi"
+    return jsonify(data="hi")
     return jsonify(data=data_json)
     # return jsonify({'prediction': prediction_result})
 
