@@ -10,42 +10,39 @@
 #     app.run(port=5000, debug=True)
 
 
-
-from flask import Flask, jsonify
-
 # from viaduc import Viaduc
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-@app.route('/get_gif')
-def get_gif():
-    # Load .npy file
-    # get from local storage
-    data = np.load('path/to/your/file.npy')
+# @app.route('/get_gif')
+# def get_gif():
+#     # Load .npy file
+#     # get from local storage
+#     data = np.load('path/to/your/file.npy')
 
-    # turn into base64
+#     # turn into base64
 
-    im = []
-    image_array = np.load('data/0010.npy')
-    for i in range(len(image_array)):
-        im.append(Image.fromarray(image_array[i].astype('uint8')))
-
-
-
-    buffer = io.BytesIO()
-    im[0].save(buffer, format='GIF', save_all=True, append_images=im[1:], optimize=False, duration=200, loop=0)
-    buffer.seek(0)
-    data_uri = base64.b64encode(buffer.read()).decode('ascii')
+#     im = []
+#     image_array = np.load('data/0010.npy')
+#     for i in range(len(image_array)):
+#         im.append(Image.fromarray(image_array[i].astype('uint8')))
 
 
 
-    # Convert to a format that can be easily transmitted
-    data_json = data.tolist()
+#     buffer = io.BytesIO()
+#     im[0].save(buffer, format='GIF', save_all=True, append_images=im[1:], optimize=False, duration=200, loop=0)
+#     buffer.seek(0)
+#     data_uri = base64.b64encode(buffer.read()).decode('ascii')
 
-    return jsonify(data=data_json)
 
-if __name__ == '__main__':
-    app.run()
+
+#     # Convert to a format that can be easily transmitted
+#     data_json = data.tolist()
+
+#     return jsonify(data=data_json)
+
+# if __name__ == '__main__':
+#     app.run()
 
 
 
@@ -74,6 +71,35 @@ CORS(app, origins=['https://cmpt340-project-758b976dd842.herokuapp.com/'])
 parser = reqparse.RequestParser()
 parser.add_argument('text')
 
+@app.route('/createGIF')
+def createGIF():
+    # Load .npy file
+    # get from local storage
+    data = np.load('path/to/your/file.npy')
+
+    # turn into base64
+
+    im = []
+    image_array = np.load('data/0010.npy')
+    for i in range(len(image_array)):
+        im.append(Image.fromarray(image_array[i].astype('uint8')))
+
+
+
+    buffer = io.BytesIO()
+    im[0].save(buffer, format='GIF', save_all=True, append_images=im[1:], optimize=False, duration=200, loop=0)
+    buffer.seek(0)
+    data_uri = base64.b64encode(buffer.read()).decode('ascii')
+
+
+
+    # Convert to a format that can be easily transmitted
+    data_json = data.tolist()
+
+    return "hi"
+    return jsonify(data=data_json)
+    # return jsonify({'prediction': prediction_result})
+
 class YourClass(Resource):
     def post(self):
         args = parser.parse_args()
@@ -87,3 +113,6 @@ api.add_resource(YourClass, '/your_api_endpoint')
 
 if "__name__" == "__main__":
     app.run(host='https://cmpt340-project-758b976dd842.herokuapp.com/')
+
+
+
