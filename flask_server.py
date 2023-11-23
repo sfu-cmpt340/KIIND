@@ -66,7 +66,7 @@ from PIL import Image
 
 
 # Import your python module containing the script
-import createGif as scripts
+import public.createGif as scripts
 
 app = Flask(__name__)
 api = Api(app)
