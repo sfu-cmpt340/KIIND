@@ -153,6 +153,7 @@
 
   input[type="file"]{
     padding: 20px;
+    float: left;
     
   }
 
@@ -175,18 +176,7 @@
     transition: filter .2s;
   }
 
-  /* input::file-selector-button:after {
-    background-clip: padding-box;
-    background-color: #007399;
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    bottom: -4px;
-    content: "";
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
-  } */
+#gif {
+  float:left
+}
   
