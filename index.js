@@ -3,8 +3,11 @@ const express = require("express"); // this is the Sinatra-like MVC frameworks f
 const path = require('path');
 const request = require('request');
 
+// import {PythonShell} from 'python-shell';
+
 // this is our app
 var app = express();
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -22,6 +25,29 @@ app.get("/acl", (req, res) => res.render("pages/acl"));
 app.get("/meniscus", (req, res) => res.render("pages/meniscus"));
 app.get("/about", (req, res) => res.render("pages/about"));
 
+app.get("/createGIF", (req, res) => {
+
+    // PythonShell.run('pages/createGIF.py', null).then(messages=>{
+    //     console.log('finished');
+    //   });
+
+    res.render("pages/about")
+
+    console.log("1");
+    const {spawn} = require('child_process');
+    console.log("require");
+
+    const pyProg = spawn('python', ['pages/createGif.py']);
+    console.log("spawn");
+
+    pyProg.stdout.on('data', function(data) {
+
+        console.log(data.toString());
+        res.write(data);
+        res.end('end');
+        
+    });
+})
 
 
 

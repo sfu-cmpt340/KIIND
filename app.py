@@ -75,7 +75,7 @@ parser.add_argument('text')
 def createGIF():
     # Load .npy file
     # get from local storage
-    data = np.load('path/to/your/file.npy')
+    # data = np.load('path/to/your/file.npy')
 
     # turn into base64
 
@@ -112,7 +112,7 @@ def createGIF():
 # api.add_resource(YourClass, '/your_api_endpoint')
 
 if "__name__" == "__main__":
-    app.run(host='https://cmpt340-project-758b976dd842.herokuapp.com/')
+    app.run(host='https://cmpt340-project-758b976dd842.herokuapp.com')
 
 
 
