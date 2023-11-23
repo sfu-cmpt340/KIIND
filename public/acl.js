@@ -25,10 +25,12 @@ function storeFile(event){
     // const pythonProcess = spawn('python',["./createGif.py", "arg1"]);
 
 
-    fetch('https://cmpt340-project-758b976dd842.herokuapp.com/createGIF', {
-        method: 'POST',
-        body: formData
-        })
+    fetch('https://cmpt340-project-758b976dd842.herokuapp.com/createGIF', 
+        // {   
+        // method: 'POST',
+        // body: formData
+        // }
+        )
         .then(response => response.json())
         .then(data => {
         console.log('Prediction:', data);

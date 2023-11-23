@@ -63,7 +63,7 @@ from PIL import Image
 
 
 # Import your python module containing the script
-import public.createGif as scripts
+# import public.createGif as scripts
 
 app = Flask(__name__)
 api = Api(app)
@@ -100,16 +100,16 @@ def createGIF():
     return jsonify(data=data_json)
     # return jsonify({'prediction': prediction_result})
 
-class YourClass(Resource):
-    def post(self):
-        args = parser.parse_args()
-        # Invoke your text processing script here
-        processed_text = scripts.text_processor(args['text'])
-        response = {'data': processed_text}
-        return response, 200
+# class YourClass(Resource):
+#     def post(self):
+#         args = parser.parse_args()
+#         # Invoke your text processing script here
+#         processed_text = scripts.text_processor(args['text'])
+#         response = {'data': processed_text}
+#         return response, 200
 
 # This is where the routing is specified
-api.add_resource(YourClass, '/your_api_endpoint')
+# api.add_resource(YourClass, '/your_api_endpoint')
 
 if "__name__" == "__main__":
     app.run(host='https://cmpt340-project-758b976dd842.herokuapp.com/')
