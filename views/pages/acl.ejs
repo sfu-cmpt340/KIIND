@@ -33,7 +33,12 @@
     
     <div id="smallSect1">
       <h1 class="sectTitle2">Upload Image</h1>
-      <input id="fileInput" name="datafile" type="file">
+      <form action="fileUpload" method="post" enctype="multipart/form-data">
+        <input id="fileInput" name="datafile" type="file">
+        <input id="fileSubmitButton" type="submit">
+        
+      </form>
+      
       <span id="gif"></span>
 
 
@@ -41,6 +46,8 @@
 
     <div id="smallSect2">
       <h1 class="sectTitle2">Diagnosis</h1>
+      <!-- <h1><%=gif%></h1> -->
+      <img src="<%=gif%>">
       
     </div>
 

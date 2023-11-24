@@ -30,7 +30,9 @@ from viaduc import Viaduc
 
 
 im = []
-image_array = np.load('data/0001.npy')
+# image_array = np.load('data/0001.npy')
+image_array = np.load('uploads/data.npy')
+
 # print(image_array)
 
 

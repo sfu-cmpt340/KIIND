@@ -1,9 +1,9 @@
 function init(){
-    document.getElementById('fileInput').addEventListener('change', storeFile, false);
+    // document.getElementById('fileInput').addEventListener('change', storeFile, false);
+    // document.getElementById('fileSubmitButton').addEventListener('click', storeFile, false);
 
 }
 
-// document.getElementById('fileInput').addEventListener('change', storeFile, false);
 
 
 function storeFile(event){

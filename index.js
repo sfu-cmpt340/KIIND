@@ -4,7 +4,8 @@ const path = require('path');
 const request = require('request');
 var session = require("express-session"); // used for login
 const PythonShell = require('python-shell').PythonShell;
-const fs = require('fs') 
+const fs = require('fs');
+const fileUpload = require('express-fileupload');
 
 // import {PythonShell} from 'python-shell';
 
@@ -22,6 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json({limit: '50mb'}));
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.urlencoded({limit: '50mb'}));
+app.use(fileUpload());
+
 
 // the user session
 app.use(
@@ -44,9 +47,46 @@ app.get('/', (req, res) => res.render('pages/index'));
 
 
 // pages
-app.get("/acl", (req, res) => res.render("pages/acl"));
+app.get("/acl", (req, res) => res.render("pages/acl", { gif: "" }));
 app.get("/meniscus", (req, res) => res.render("pages/meniscus"));
 app.get("/about", (req, res) => res.render("pages/about"));
+
+
+app.post("/fileUpload", (req, res) =>{
+
+    const uploadedFile = req.files.datafile;
+    uploadPath = __dirname + "/uploads/data.npy"; 
+
+    // console.log(req.files.datafile);
+
+    uploadedFile.mv(uploadPath, function (err) { 
+        if (err) { 
+          console.log(err); 
+          res.send("Failed !!"); 
+        }
+         else {
+            let pyshell = new PythonShell('public/createGIF.py');
+
+            let options = {
+                // args: [req.body.file] // too long
+                args: "file upload"
+            }
+
+            PythonShell.run('public/createGIF.py', options).then(messages=>{
+                // results is an array consisting of messages collected during execution
+                console.log('results: %j', messages);
+            });
+
+            res.render("pages/acl", { gif: "./scan.gif" });
+            
+         }
+      }); 
+    
+
+
+
+
+});
 
 
 app.post("/createGIF", (req, res) => {
