@@ -1,15 +1,9 @@
-// import { createRequire } from 'node:module';
-// const require = createRequire(import.meta.url);
-import {PythonShell} from 'python-shell';
+function init(){
+    document.getElementById('fileInput').addEventListener('change', storeFile, false);
 
+}
 
-
-// function init(){
-//     document.getElementById('fileInput').addEventListener('change', storeFile, false);
-
-// }
-
-document.getElementById('fileInput').addEventListener('change', storeFile, false);
+// document.getElementById('fileInput').addEventListener('change', storeFile, false);
 
 
 function storeFile(event){
@@ -17,8 +11,9 @@ function storeFile(event){
 
     var file = event.target.files[0];
     var reader = new FileReader();
+    var fileContentBase64;
     reader.onload = function(e){
-        var fileContentBase64 = e.target.result;
+        fileContentBase64 = e.target.result;
         sessionStorage.setItem('uploadedFile', fileContentBase64);
 
     }
@@ -27,29 +22,46 @@ function storeFile(event){
 
 
 
-    PythonShell.run('./createGIF.py', null).then(messages=>{
-        console.log('finished');
+    // window.location.href = 'https://cmpt340-project-758b976dd842.herokuapp.com/createGIF';
+    // newURL = window.location.protocol + "//" + window.location.host + '/createGIF';
+    // window.location.href = newURL;
+
+    const formData = new FormData();
+    formData.append('file', fileContentBase64);
+
+    let base64file = window.sessionStorage.getItem('uploadedFile');
+    // console.log(base64file);
+
+    fetch("/createGIF", {
+        method: "POST", 
+        headers: {
+           'Content-Type': 'application/json'
+            // 'Content-Type': 'application/octet-stream'
+
+        //    'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        // body: formData
+        // body: JSON.stringify(base64file)
+        // body: JSON.stringify(window.btoa(base64file))
+        body: JSON.stringify({"file": base64file})
+        // body: test
+
+
+    })
+    .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('File upload failed');
+        }
+      })
+    .then(data => {
+        console.log('Server response:', data);
+    })
+    .catch(error => {
+        console.error('Error uploading file:', error);
     });
 
-    // oh maybe this can work on heroku
-    // const spawn = require("child_process").spawn;
-    // const pythonProcess = spawn('python',["./createGif.py", "arg1"]);
-
-
-    // fetch('https://cmpt340-project-758b976dd842.herokuapp.com/createGIF', 
-    //     // {   
-    //     // method: 'POST',
-    //     // body: formData
-    //     // }
-    //     )
-    //     .then(response => response.json())
-    //     .then(data => {
-    //     console.log('Prediction:', data);
-    //     })
-    // //     .catch(error => {
-    // //     console.error('Error:', error);
-    // // })
-    // ;
 
 
 }

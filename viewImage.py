@@ -30,7 +30,11 @@ from viaduc import Viaduc
 
 
 im = []
-image_array = np.load('data/0010.npy')
+image_array = np.load('data/0001.npy')
+# print(image_array)
+
+
+
 for i in range(len(image_array)):
     im.append(Image.fromarray(image_array[i].astype('uint8')))
     print(image_array[i])
