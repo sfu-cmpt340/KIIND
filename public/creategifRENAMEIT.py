@@ -16,7 +16,7 @@ def main():
     im[0].save("public/scan.gif", save_all=True, append_images=im[1:], duration=50, loop=0)
     print("healthy")
 
-
+# fjksadfkjds
 
 def main2():
 
