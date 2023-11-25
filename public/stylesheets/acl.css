@@ -282,6 +282,8 @@ display: inline-block;
 font-size: 13px;
 font-weight: 400;
 line-height: 1.15385;
+width: 100px;
+height: 40px;
 margin: 0;
 outline: none;
 padding: 8px .8em;
