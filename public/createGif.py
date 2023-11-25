@@ -5,7 +5,7 @@ import numpy as np
 import os
 from PIL import Image
 import io
-
+ 
 def main():
     im = []
     image_array = np.load('uploads/data.npy')
