@@ -20,12 +20,6 @@ function storeFile(event){
     reader.readAsDataURL(file);
     console.log("stored in session storage");
 
-
-
-    // window.location.href = 'https://cmpt340-project-758b976dd842.herokuapp.com/createGIF';
-    // newURL = window.location.protocol + "//" + window.location.host + '/createGIF';
-    // window.location.href = newURL;
-
     const formData = new FormData();
     formData.append('file', fileContentBase64);
 
@@ -65,4 +59,3 @@ function storeFile(event){
 
 
 }
-

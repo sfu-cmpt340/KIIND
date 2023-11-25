@@ -34,20 +34,42 @@
     <div id="smallSect1">
       <h1 class="sectTitle2">Upload Image</h1>
       <form action="fileUpload" method="post" enctype="multipart/form-data">
-        <input id="fileInput" name="datafile" type="file">
-        <input id="fileSubmitButton" type="submit">
+        
+        <div id="formItemsDiv">
+          <div>
+            <input id="fileInput" name="datafile" type="file" required>
+  
+          </div>
+            <div id="selectDiv">
+              <label id="selectLabel" for="planeSelector">MRI Plane:</label>
+              <select id="planeSelector" name="imagePlane" required>
+                <option value="" selected>Choose one</option>
+                <option value="axial">Axial</option>
+                <option value="coronal">Coronal</option>
+                <option value="sagittal">Sagittal</option>
+              </select>
+
+            </div>
+
+
+        </div>
+        
+        
+        <div id="submitButtonDiv">
+          <input id="fileSubmitButton" type="submit">
+
+        </div>
         
       </form>
       
-      <span id="gif"></span>
-
 
     </div>
 
     <div id="smallSect2">
-      <h1 class="sectTitle2">Diagnosis</h1>
+      <h1 class="sectTitle2">Diagnosis: <%=diagnosis%></h1>
       <!-- <h1><%=gif%></h1> -->
-      <img src="<%=gif%>">
+      <img id="gifImg" src="<%=gif%>">
+      <!-- <h3 id="diagnosis"></h3> -->
       
     </div>
 

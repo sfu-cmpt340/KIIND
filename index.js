@@ -47,8 +47,8 @@ app.get('/', (req, res) => res.render('pages/index'));
 
 
 // pages
-app.get("/acl", (req, res) => res.render("pages/acl", { gif: "" }));
-app.get("/meniscus", (req, res) => res.render("pages/meniscus"));
+app.get("/acl", (req, res) => res.render("pages/acl", { gif: "" , diagnosis: ""}));
+app.get("/meniscus", (req, res) => res.render("pages/meniscus", { gif: "" , diagnosis: ""}));
 app.get("/about", (req, res) => res.render("pages/about"));
 
 
@@ -56,8 +56,6 @@ app.post("/fileUpload", (req, res) =>{
 
     const uploadedFile = req.files.datafile;
     uploadPath = __dirname + "/uploads/data.npy"; 
-
-    // console.log(req.files.datafile);
 
     uploadedFile.mv(uploadPath, function (err) { 
         if (err) { 
@@ -71,80 +69,50 @@ app.post("/fileUpload", (req, res) =>{
                 // args: [req.body.file] // too long
                 args: "file upload"
             }
-
+            var d;
             PythonShell.run('public/createGIF.py', options).then(messages=>{
                 // results is an array consisting of messages collected during execution
                 console.log('results: %j', messages);
+                d = messages[0];
+                res.render("pages/acl", { gif: "./scan.gif", diagnosis: String(d) });
             });
-
-            res.render("pages/acl", { gif: "./scan.gif" });
-            
          }
       }); 
     
-
-
-
-
 });
 
 
-app.post("/createGIF", (req, res) => {
-    // console.log("yes?", req.body);          // this would be the data sent with the request
-    console.log("type of", typeof req.body);
-    // console.log("oops", req.body.file)
-    // instead of passing to python, save to a text file in public?
-    // and then python can access that
+app.post("/fileUpload2", (req, res) =>{
 
+    const uploadedFile = req.files.datafile;
+    uploadPath = __dirname + "/uploads/data.npy"; 
 
-    fs.writeFile('public/file.txt', req.body.file, (err) => { 
-          
-        // In case of a error throw err. 
-        if (err) throw err; 
-    }) 
+    uploadedFile.mv(uploadPath, function (err) { 
+        if (err) { 
+          console.log(err); 
+          res.send("Failed !!"); 
+        }
+         else {
+            let pyshell = new PythonShell('public/createGIF.py');
 
-
-
-
-
-
-
-    let pyshell = new PythonShell('public/createGIF.py');
-
-
-    let options = {
-        // args: [req.body.file] // too long
-        args: [req.body]
-    }
-
-    PythonShell.run('public/createGIF.py', options).then(messages=>{
-        // results is an array consisting of messages collected during execution
-        console.log('results: %j', messages);
-    });
-
-               
-
-
-});
-
-
-// app.get("/createGIF", (req, res) => {
-
-//     let pyshell = new PythonShell('public/createGIF.py');
+            let options = {
+                // args: [req.body.file] // too long
+                args: "file upload"
+            }
+            var d;
+            PythonShell.run('public/createGIF.py', options).then(messages=>{
+                // results is an array consisting of messages collected during execution
+                console.log('results: %j', messages);
+                d = messages[0];
+                console.log("messages", d);
+                res.render("pages/meniscus", { gif: "./scan.gif", diagnosis: String(d) });
+            });
+         }
+      }); 
     
-//     let options = {
-//         // args: [file]
-//         args: "hi"
+});
 
-//       };
 
-      
-//     PythonShell.run('public/createGIF.py', options).then(messages=>{
-//     // results is an array consisting of messages collected during execution
-//     console.log('results: %j', messages);
-//     });
-
-// })
 
 
 
