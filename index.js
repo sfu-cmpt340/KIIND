@@ -56,6 +56,8 @@ app.post("/fileUpload", (req, res) =>{
 
     const uploadedFile = req.files.datafile;
     uploadPath = __dirname + "/uploads/data.npy"; 
+    console.log("test");
+
 
     uploadedFile.mv(uploadPath, function (err) { 
         if (err) { 
@@ -93,14 +95,14 @@ app.post("/fileUpload2", (req, res) =>{
           res.send("Failed !!"); 
         }
          else {
-            let pyshell = new PythonShell('public/createGIF.py');
+            let pyshell = new PythonShell('public/creategif.py');
 
             let options = {
                 // args: [req.body.file] // too long
                 args: "file upload"
             }
             var d;
-            PythonShell.run('public/createGIF.py', options).then(messages=>{
+            PythonShell.run('public/creategif.py', options).then(messages=>{
                 // results is an array consisting of messages collected during execution
                 console.log('results: %j', messages);
                 d = messages[0];
