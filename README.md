@@ -1,6 +1,5 @@
-# Knee Injury Detection (KID)
-This repository is a template for your CMPT 340 course project.
-Replace the title with your project title, and **add a snappy acronym that people remember (mnemonic)**.
+#Knee Injury Detection (KID)
+# Deep Knee Injury Detection (DKID) ??
 
 Add a 1-2 line summary of your project here.
 
