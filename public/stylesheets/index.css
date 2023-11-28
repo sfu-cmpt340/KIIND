@@ -76,6 +76,9 @@ p, h1, h2, h3, li {
 
 #infoButton  {
   background-color: #006080;
+  /* background-color: #023047; */
+  /* background-color: #115768; */
+
   border: solid transparent;
   border-radius: 15px;
   border-width: 0 0 4px;
@@ -98,6 +101,8 @@ p, h1, h2, h3, li {
 #infoButton:after {
   background-clip: padding-box;
   background-color: #007399;
+  /* background-color: #219EBC; */
+  
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
