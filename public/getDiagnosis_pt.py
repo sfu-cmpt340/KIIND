@@ -1,4 +1,4 @@
-import torch
+# import torch
 import sys
 
 
@@ -13,8 +13,8 @@ def main():
 
 
 
-    model = torch.jit.load('model_scripted.pt')
-    model.eval()
+    # model = torch.jit.load('model_scripted.pt')
+    # model.eval()
 
 if __name__ == '__main__':
     main()
