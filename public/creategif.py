@@ -39,11 +39,16 @@ def main():
     meniscus_pred = prediction[1]
     abnormal_pred = prediction[2]
 
-    if acl_pred > 0.75:
+
+    if acl_pred > 0.85:
         print("ACL injury")
+        print("type ", type(acl_pred))
+        
     else:
         print("No ACL injury")
     
+    print(prediction)
+
 
     # duration is the number of milliseconds between frames; this is 40 frames per second
     im[0].save("public/scan.gif", save_all=True, append_images=im[1:], duration=50, loop=0)
