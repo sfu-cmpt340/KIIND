@@ -25,10 +25,12 @@ def main():
         
     
 
-    array_a = pad_slices(image_array)
-    array_s = pad_slices(image_array_s)
-    array_c = pad_slices(image_array_c)
+    array_a = crop_center(pad_slices(image_array), 160, 160)
+    array_s = crop_center(pad_slices(image_array_s), 160, 160)
+    array_c = crop_center(pad_slices(image_array_c), 160, 160)
 
+    # array_s = pad_slices(image_array_s)
+    # array_c = pad_slices(image_array_c)
     all = np.stack((array_a, array_s, array_c), axis=-1)
 
     model_path = os.path.join('models', 'imageclassifier5.h5')
@@ -40,7 +42,14 @@ def main():
     print(prediction)    
     print("healthy")
 
-
+def crop_center(img, cropx, cropy):
+    # Assuming img has shape (slices, height, width, channels)
+    d, y, x, c = img.shape
+    startx = x // 2 - (cropx // 2)
+    starty = y // 2 - (cropy // 2)
+    
+    # Ensure the cropped image has the same number of channels
+    return img[:, starty:starty+cropy, startx:startx+cropx, :]
 
 def pad_slices(scan, target_slices= 50):
     # Get the current number of slices
