@@ -233,6 +233,10 @@ float: left;
   float: left;
 }
 
+.labelDiv {
+  width: 50%;
+}
+
 #submitButtonDiv {
 /* width: 40%; */
 float: left;

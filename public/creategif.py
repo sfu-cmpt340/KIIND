@@ -30,14 +30,20 @@ def main():
 
     all = np.stack((array_a, array_s, array_c), axis=-1)
     all = np.array([crop_center(all, 160, 160) ])
+
+
+    batch_min = all.min()
+    batch_max = all.max()
+    all = (all.astype(np.float32) - batch_min) / (batch_max - batch_min)
+
     
     model_path = os.path.join('models', 'imageclassifier5.h5')
     model = load_model(model_path)
     prediction = model.predict(all, verbose=0)
     prediction = prediction[0]
-    acl_pred = prediction[0]
-    meniscus_pred = prediction[1]
-    abnormal_pred = prediction[2]
+    abnormal_pred = prediction[0]
+    acl_pred = prediction[1]
+    meniscus_pred = prediction[2]
 
 
     if acl_pred > 0.85:
