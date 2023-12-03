@@ -37,7 +37,7 @@ def main():
 
     # duration is the number of milliseconds between frames; this is 40 frames per second
     im[0].save("public/scan.gif", save_all=True, append_images=im[1:], duration=50, loop=0)
-    print(prediction)    
+    print(prediction[1])    
     print("healthy")
 
 def crop_center(img, cropx, cropy):
