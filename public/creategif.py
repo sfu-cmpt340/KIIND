@@ -34,11 +34,21 @@ def main():
     model_path = os.path.join('models', 'imageclassifier5.h5')
     model = load_model(model_path)
     prediction = model.predict(all, verbose=0)
+    prediction = prediction[0]
+    acl_pred = prediction[0]
+    meniscus_pred = prediction[1]
+    abnormal_pred = prediction[2]
+
+    if acl_pred > 0.75:
+        print("ACL injury")
+    else:
+        print("No ACL injury")
+    
 
     # duration is the number of milliseconds between frames; this is 40 frames per second
     im[0].save("public/scan.gif", save_all=True, append_images=im[1:], duration=50, loop=0)
-    print("hello", type(prediction), prediction)    
-    print("healthy")
+    # print("hello", type(prediction), prediction)    
+    # print("healthy")
 
 def crop_center(img, cropx, cropy):
     # Assuming img has shape (slices, height, width, channels)
