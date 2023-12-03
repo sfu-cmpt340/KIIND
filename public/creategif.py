@@ -46,14 +46,17 @@ def main():
     meniscus_pred = prediction[2]
 
 
-    if acl_pred > 0.85:
+    if acl_pred > 0.55:
         print("ACL injury")
         print("type ", type(acl_pred))
+    elif abnormal_pred > 0.55:
+        print("No ACL injury, but has abnormalities")
         
     else:
         print("No ACL injury")
     
     print(prediction)
+    print(all)
 
 
     # duration is the number of milliseconds between frames; this is 40 frames per second
