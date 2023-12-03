@@ -8,7 +8,6 @@ import io
 import os
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-# import sjdakfjksdahf
  
 def main():
     im = []
@@ -23,21 +22,15 @@ def main():
     for i in range(len(image_array_c)):
         im.append(Image.fromarray(image_array_c[i].astype('uint8')))
         
-    
 
-    # array_a = crop_center(pad_slices(image_array), 160, 160)
-    # array_s = crop_center(pad_slices(image_array_s), 160, 160)
-    # array_c = crop_center(pad_slices(image_array_c), 160, 160)
     array_a = pad_slices(image_array)
     array_s = pad_slices(image_array_s)
     array_c = pad_slices(image_array_c)
 
 
-    # array_s = pad_slices(image_array_s)
-    # array_c = pad_slices(image_array_c)
     all = np.stack((array_a, array_s, array_c), axis=-1)
-    all = crop_center(all, 160, 160)
-
+    all = np.array([crop_center(all, 160, 160) ])
+    
     model_path = os.path.join('models', 'imageclassifier5.h5')
     model = load_model(model_path)
     prediction = model.predict(all)
