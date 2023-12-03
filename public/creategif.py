@@ -5,16 +5,63 @@ import numpy as np
 import os
 from PIL import Image
 import io
+import os
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+# import sjdakfjksdahf
  
 def main():
     im = []
-    image_array = np.load('uploads/data.npy')
+    image_array = np.load('uploads/data_a.npy')
+    image_array_s = np.load('uploads/data_s.npy')
+    image_array_c = np.load('uploads/data_c.npy')
+
     for i in range(len(image_array)):
         im.append(Image.fromarray(image_array[i].astype('uint8')))
+    for i in range(len(image_array_s)):
+        im.append(Image.fromarray(image_array_s[i].astype('uint8')))
+    for i in range(len(image_array_c)):
+        im.append(Image.fromarray(image_array_c[i].astype('uint8')))
+        
+    
+
+    array_a = pad_slices(image_array)
+    array_s = pad_slices(image_array_s)
+    array_c = pad_slices(image_array_c)
+
+    all = np.stack((array_a, array_s, array_c), axis=-1)
+
+    model_path = os.path.join('models', 'imageclassifier5.h5')
+    model = load_model(model_path)
+    prediction = model.predict(all)
 
     # duration is the number of milliseconds between frames; this is 40 frames per second
     im[0].save("public/scan.gif", save_all=True, append_images=im[1:], duration=50, loop=0)
+    print(prediction)    
     print("healthy")
+
+
+
+def pad_slices(scan, target_slices= 50):
+    # Get the current number of slices
+    current_slices = scan.shape[0]
+    # Check if padding is necessary
+    if current_slices < target_slices:
+        # Calculate padding amounts
+        pad_before = (target_slices - current_slices) // 2
+        pad_after = target_slices - current_slices - pad_before
+        # Pad the scan with zeros on the slices axis (axis 0)
+        padded_scan = np.pad(scan, pad_width=((pad_before, pad_after), (0, 0), (0, 0)), mode='constant', constant_values=0)
+    elif current_slices > target_slices:
+        # Calculate the cropping needed
+        start = (current_slices - target_slices) // 2
+        end = start + target_slices
+        # Crop the scan to the target size
+        padded_scan = scan[start:end, :, :]
+    else:
+        # If the number of slices is already equal to the target, no action is needed
+        padded_scan = scan
+    return padded_scan
 
 
 def main2():

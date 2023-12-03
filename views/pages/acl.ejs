@@ -36,11 +36,24 @@
       <form action="fileUpload" method="post" enctype="multipart/form-data">
         
         <div id="formItemsDiv">
-          <div>
-            <input id="fileInput" name="datafile" type="file" required>
-  
-          </div>
-            <div id="selectDiv">
+          <div id="fileInputsDiv">
+            <div>
+              <label>Axial</label>
+              <input id="fileInput_a" name="datafile_a" type="file" required>
+             
+            </div>
+            <div>
+              <label>Sagittal</label>
+              <input id="fileInput_s" name="datafile_s" type="file" required>
+              
+            </div>
+            <div>
+              <label>Coronal</label>
+            <input id="fileInput_c" name="datafile_c" type="file" required>
+          
+            </div>
+             </div>
+            <!-- <div id="selectDiv">
               <label id="selectLabel" for="planeSelector">MRI Plane:</label>
               <select id="planeSelector" name="imagePlane" required>
                 <option value="" selected>Choose one</option>
@@ -49,7 +62,7 @@
                 <option value="sagittal">Sagittal</option>
               </select>
 
-            </div>
+            </div> -->
 
 
         </div>
@@ -57,10 +70,11 @@
         
         <div id="submitButtonDiv">
           <input id="fileSubmitButton" type="submit">
-
         </div>
         
       </form>
+
+      <!-- <br> -->
       
 
     </div>
