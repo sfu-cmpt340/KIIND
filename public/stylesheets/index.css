@@ -1,5 +1,4 @@
 #bigSect{
-  /* background-image: url('brain.jpg'); */
   background-image: url('nn3.png');
 
   width: 69%;
@@ -29,7 +28,6 @@ p, h1, h2, h3, li {
   text-shadow: 5px 5px #558ABB;
   text-shadow: 1px 1px 2px black;
   color: white;
-  /* font-family: "Lato"; */
   font-family: Monaco;
 
 }
@@ -37,7 +35,6 @@ p, h1, h2, h3, li {
 #smallSect1{
   float: left;
   background-image: url('acltear3.png');
-  /* background-image: url('acltear.jpg'); */
 
   background-size: cover;
   width: 28%;
@@ -60,7 +57,6 @@ p, h1, h2, h3, li {
   border-radius: 10px;
   transition-duration: .3s;
 
-  /* margin-bottom: 10px; */
 }
 
 #smallSect2:hover{
@@ -76,8 +72,7 @@ p, h1, h2, h3, li {
 
 #infoButton  {
   background-color: #006080;
-  /* background-color: #023047; */
-  /* background-color: #115768; */
+
 
   border: solid transparent;
   border-radius: 15px;
@@ -94,14 +89,12 @@ p, h1, h2, h3, li {
   font-size: 24px;
   left: 21%;
   top: 80%;
-  /* box-shadow: 3px 3px #3399ff, -1em 0 .4em lightblue; */
-  /* box-shadow: 10px 5px 5px lightblue; */
+
 }
 
 #infoButton:after {
   background-clip: padding-box;
   background-color: #007399;
-  /* background-color: #219EBC; */
   
   border: solid transparent;
   border-radius: 16px;

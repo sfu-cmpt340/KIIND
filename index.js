@@ -7,21 +7,14 @@ const PythonShell = require('python-shell').PythonShell;
 const fs = require('fs');
 const fileUpload = require('express-fileupload');
 
-// import {PythonShell} from 'python-shell';
-
 // this is our app
 var app = express();
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-// app.use(express.bodyParser({limit: '50mb'}));
 
-// app.get("/", (req, res) => res.render("pages/index"));
-// app.get("/", (req, res) => res.send("hello world"));
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.json());  
 app.use(express.json({limit: '50mb'}));
-// app.use(express.urlencoded({ extended: true }));
 app.use(express.urlencoded({limit: '50mb'}));
 app.use(fileUpload());
 
@@ -103,50 +96,69 @@ app.post("/fileUpload", (req, res) =>{
                     })
                 }
             })
-
-
-
-            
-         
-        
-        
-        
         
         }
       }); 
     
 });
 
+app.post("/fileUpload2", (req, res) =>{
+    // console.log(req.files);
+    const uploadedFile_a = req.files.datafile_a;
+    const uploadedFile_s = req.files.datafile_s;
+    const uploadedFile_c = req.files.datafile_c;
 
-// app.post("/fileUpload2", (req, res) =>{
-//     console.log(req);
-//     const uploadedFile = req.files.datafile;
-//     uploadPath = __dirname + "/uploads/data.npy"; 
+    uploadPath_a = __dirname + "/uploads/data_a.npy"; 
+    uploadPath_s = __dirname + "/uploads/data_s.npy"; 
+    uploadPath_c = __dirname + "/uploads/data_c.npy"; 
 
-//     uploadedFile.mv(uploadPath, function (err) { 
-//         if (err) { 
-//           console.log(err); 
-//           res.send("Failed !!"); 
-//         }
-//          else {
-//             let pyshell = new PythonShell('public/creategif.py');
+    console.log("test");
 
-//             let options = {
-//                 // args: [req.body.file] // too long
-//                 args: "file upload"
-//             }
-//             var d;
-//             PythonShell.run('public/creategif.py', options).then(messages=>{
-//                 // results is an array consisting of messages collected during execution
-//                 console.log('results: %j', messages);
-//                 d = messages[0];
-//                 console.log("messages", d);
-//                 res.render("pages/meniscus", { gif: "./scan.gif", diagnosis: String(d) });
-//             });
-//          }
-//       }); 
+
+    uploadedFile_a.mv(uploadPath_a, function (err) { 
+        if (err) { 
+          console.log(err); 
+          res.send("Failed !!"); 
+        }
+         else {
+
+            uploadedFile_s.mv(uploadPath_s, function (err){
+                if (err){
+                    console.log(err);
+                    res.send("Failed !!");
+                }
+                else{
+                    uploadedFile_c.mv(uploadPath_c, function (err){
+                        if (err) {
+                            console.log(err);
+                            res.send("Failed !!")
+                        }
+                        else{
+                            let pyshell = new PythonShell('public/creategif.py');
+
+                            let options = {
+                                // args: [req.body.file] // too long
+                                args: "file upload"
+                            }
+                            var d;
+                            PythonShell.run('public/creategif.py', options).then(messages=>{
+                                // results is an array consisting of messages collected during execution
+                                console.log('results: %j', messages);
+                                d = messages[0];
+                                res.render("pages/meniscus", { gif: "./scan.gif", diagnosis: String(d) });
+                            });
+
+
+                        }
+                    })
+                }
+            })
+        
+        }
+      }); 
     
-// });
+});
+
 
 
 
