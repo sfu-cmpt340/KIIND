@@ -49,7 +49,8 @@ for img in imgs:
   <img src="https://github.com/sfu-cmpt340/project_18/blob/main/public/grid_processing.png" width="800" >
 
 </p>
-Can be used for any 3D volume data in .npy format in form (slices,height,width) 
+Can be used for any 3D volume data in .npy format in form (slices,height,width)
+Required packages: numpy, PIL, shutil, tqdm, os, collections
 
 - Download 2D CNN pipeline
 - Open Image_processing_2D_grids.ipynb or .py
@@ -62,10 +63,16 @@ grid_path_axial = grid_processing.create_grids("MRNet-v1.0_demo/train/axial", 2,
 .
 
 #generate triple grids (side by side)
-grid_processing.triple_grid(grid_path_axial, grid_path_coronal, grid_path_sagittal)
+triple_grids_path = grid_processing.triple_grid(grid_path_axial, grid_path_coronal, grid_path_sagittal)
 
 #generate rgb stacks
-grid_processing.rgb_stacks(grid_path_axial, grid_path_coronal, grid_path_sagittal)
+rgb_stacks_path = grid_processing.rgb_stacks(grid_path_axial, grid_path_coronal, grid_path_sagittal)
+
+#create balanced dataset
+temp,valid_labels = np.loadtxt("MRNet-v1.0_demo/valid-acl.csv", #can add or remove more temps if there are more columns
+                 delimiter=",", dtype=int, unpack=True)
+bal_imgs_path_train, bal_labels_train = grid_processing.balance_dataset(rgb_stacks_path,train_labels,'balanced_acl_rgb_stacks')
+
     
 ```
 
