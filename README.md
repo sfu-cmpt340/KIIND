@@ -16,7 +16,7 @@ Add a 1-2 line summary of your project here.
 
 ## Video/demo/GIF
 Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen recording or even using PowerPoint with audio or with text, showcasing your work.
-
+![alt text](https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif?raw=true)
 
 ## Table of Contents
 1. [Demo](#demo)
@@ -29,7 +29,7 @@ Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen record
 
 
 <a name="demo"></a>
-## 1. Example demo
+## 1. Demo of 3D CNN prediction (to be updated)....
 
 A minimal example to showcase your work
 
@@ -38,6 +38,35 @@ from amazing import amazingexample
 imgs = amazingexample.demo()
 for img in imgs:
     view(img)
+```
+<a name="demo"></a>
+## Demo of 2D image grid processing from .npy 3D MRI volumes
+
+
+
+<p align="center">
+
+  <img src="https://github.com/sfu-cmpt340/project_18/blob/main/public/grid_processing.png" width="800" >
+
+</p>
+Can be used for any 3D volume data in .npy format in form (slices,height,width) 
+
+- Download 2D CNN pipeline
+- Open Image_processing_2D_grids.ipynb or .py
+
+```python
+import grid_processing
+
+grid_path_axial = grid_processing.create_grids("MRNet-v1.0_demo/train/axial", 2, 0)
+. #repeat for other axes (coronal/sagittal) - or any folders containing .npy volumes
+.
+
+#generate triple grids (side by side)
+grid_processing.triple_grid(grid_path_axial, grid_path_coronal, grid_path_sagittal)
+
+#generate rgb stacks
+grid_processing.rgb_stacks(grid_path_axial, grid_path_coronal, grid_path_sagittal)
+    
 ```
 
 ### What to find where
