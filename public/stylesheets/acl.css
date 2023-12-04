@@ -47,7 +47,7 @@ p, h1, h2, h3, li, label {
   float: left;  
   background-size: cover;
   width: 55%;
-  height: 35vh;
+  height: 40vh;
   border-radius: 10px;
   /* transition-duration: .3s; */
 
@@ -70,7 +70,7 @@ p, h1, h2, h3, li, label {
 
   background-size: cover;
   width: 55%;
-  height: 57vh;
+  height: 52vh;
   border-radius: 10px;
   background-color: rgba(38, 107, 128, 0.2);
   background-color: rgba(106, 106, 106, 0.2);
@@ -228,16 +228,31 @@ font-size: 18px;
 float: left;
 }
 
+#fileInputsDiv {
+  width: 50%;
+  float: left;
+}
+
+.labelDiv {
+  width: 50%;
+}
+
 #submitButtonDiv {
-width: 100%;
-clear: both;
+/* width: 40%; */
+float: left;
+/* clear: both; */
 }
 
 #formItemsDiv {
-display: flex;
+/* display: flex; */
+/* float:left; */
 /* justify-content: center; */
-align-items: center;
+/* align-items: center; */
 
+}
+
+label {
+  margin-left: 20px;
 }
 
 /* .selectWrapper{
@@ -247,6 +262,7 @@ overflow:hidden;
 background:#cccccc;
 border:1px solid #cccccc;
 } */
+
 
 
 
@@ -285,7 +301,11 @@ display: inline-block;
 
 }
 
-/* CSS */
+input[type='file']{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 input::file-selector-button {
 background-color: #e1ecf4;
 border-radius: 5px;
