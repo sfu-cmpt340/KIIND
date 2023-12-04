@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image
 import shutil
 from tqdm import tqdm
+from collections import Counter
 
 #this function comes from https://stackoverflow.com/a/46877433
 def pil_grid(images, max_horiz=np.iinfo(int).max):
@@ -36,7 +37,7 @@ def create_grids(folder_path_images, crop_factor, max_grids):
 
 
     #Step 2 get current path and create new folder to save data in current path
-    path = os.path.join(os.getcwd(), folder_path_images + '_grid_imagesTESTING')
+    path = os.path.join(os.getcwd(), folder_path_images + '_grid_images')
 
     if os.path.isdir(path):
         print("Folder: {", os.path.basename(path), "} already exists! Create a new folder name or images will be put into pre-existing folder!")
@@ -158,6 +159,10 @@ def triple_grid(data_dir1, data_dir2, data_dir3):
     print("\n===================DONE=======================")
     print("Num triple grid Images created:",count)
 
+    return path
+
+
+
 def rgb_stacks(data_dir1, data_dir2, data_dir3):
 
     #get folder containing grids to save triple grids in 
@@ -183,7 +188,7 @@ def rgb_stacks(data_dir1, data_dir2, data_dir3):
 
 
     count = 0
-    pbar = tqdm(total=len(data_dir1), desc = "Combining Grid Images", colour='#669bbc')
+    pbar = tqdm(total=len(file_paths_axial), desc = "Combining Grid Images", colour='#669bbc')
     for file_path_axial, file_path_coronal, file_path_sagittal in zip(file_paths_axial, file_paths_coronal, file_paths_sagittal):
 
         axial_img = Image.open(file_path_axial)
@@ -211,3 +216,50 @@ def rgb_stacks(data_dir1, data_dir2, data_dir3):
     pbar.close()
     print("\n===================DONE=======================")
     print("Num rgb triple channel Images created:",count)
+
+    return path
+
+def balance_dataset(images_folder_path,labels,binary_label_name):
+    labels_counter = Counter(labels)
+    print("label count pre balance", labels_counter)
+    train_images = sorted(os.listdir(images_folder_path))
+    
+    # Determine the count of the least common label
+    min_label_count = min(labels_counter.values())
+    
+    balanced_labels = []
+    balanced_images = []
+    
+    #fill balanced arrays with images and respective labels while count of each label is less than min_count
+    for label, image in zip(labels, train_images):       
+        bal_labels_counter = Counter(balanced_labels)
+        if bal_labels_counter[label] <= min_label_count:
+            balanced_labels.append(label)
+            balanced_images.append(image)
+        
+    
+    #folder containing folder with images to balance, balanced images will be saved here in a sub folder
+    folder_path = os.path.dirname(images_folder_path)
+    
+    #get current path and create new folder to save data in current path
+    balanced_images_folder_path = os.path.join(os.getcwd(), folder_path, binary_label_name)
+    if not os.path.exists(balanced_images_folder_path): 
+        os.makedirs(balanced_images_folder_path)
+
+    # Assuming the files are in the current directory, copy balanced images to new folder
+    for file_name in balanced_images:
+
+        file_path = os.path.join(images_folder_path, file_name)
+        shutil.copy(file_path, balanced_images_folder_path)    
+
+    # Name for the CSV file
+    csv_name = binary_label_name + '.csv'
+    csv_path = os.path.join(os.getcwd(), csv_name)
+    print(csv_path)
+    if not os.path.exists(csv_name): 
+        np.savetxt(csv_name, balanced_labels, delimiter=",", fmt = '%d') 
+    print("\nSaved csv:", csv_name, "in path", os.getcwd())
+    print("\nPath to balanced images being returned:", balanced_images_folder_path)
+    
+    
+    return balanced_images_folder_path,balanced_labels
