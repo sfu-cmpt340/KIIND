@@ -1,4 +1,4 @@
-#Knee Injury Detection (KID)
+<img width="1537" alt="image" src="https://github.com/sfu-cmpt340/project_18/assets/65922310/cef93a78-5a7a-4233-aa02-e35fc0495aa1"><img width="1537" alt="image" src="https://github.com/sfu-cmpt340/project_18/assets/65922310/a88cfeb2-7a04-4854-ad82-593866509f1a">#Knee Injury Detection (KID)
 # Deep Knee Injury Detection (DKID) ??
 
 Add a 1-2 line summary of your project here.
@@ -16,7 +16,7 @@ Add a 1-2 line summary of your project here.
 
 ## Video/demo/GIF
 Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen recording or even using PowerPoint with audio or with text, showcasing your work.
-
+![alt text](https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif?raw=true)
 
 ## Table of Contents
 1. [Demo](#demo)
@@ -41,7 +41,16 @@ for img in imgs:
 ```
 <a name="demo"></a>
 ## Demo of 2D image grid processing from .npy 3D MRI volumes
-Can be used for any 3D volume data in .npy format in form (slices,height,width)
+
+
+
+<p align="center">
+
+  <img src="https://github.com/sfu-cmpt340/project_18/blob/main/public/grid_processing.png" width="800" >
+
+</p>
+Can be used for any 3D volume data in .npy format in form (slices,height,width) 
+
 - Download 2D CNN pipeline
 - Open Image_processing_2D_grids.ipynb or .py
 
