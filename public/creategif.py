@@ -8,6 +8,7 @@ import io
 import os
 import tensorflow as tf
 from tensorflow.keras.models import load_model
+import random
  
 def main():
     im = []
@@ -31,11 +32,23 @@ def main():
     all = np.stack((array_a, array_s, array_c), axis=-1)
     all = np.array([crop_center(all, 160, 160) ])
 
+    max_rotations = 3  # This will allow for 0, 90, 180, and 270 degrees of rotation
+    flip_prob = 0.5
 
-    # batch_min = all.min()
-    # batch_max = all.max()
-    # all = (all.astype(np.float32) - batch_min) / (batch_max - batch_min)
+    max_rotations = 3  # This will allow for 0, 90, 180, and 270 degrees of rotation
+    flip_prob = 0.5
+    batch = all
 
+    augmented_batch = np.empty_like(batch)
+    for scan_idx, scan in enumerate(batch):
+        for slice_idx, img_slice in enumerate(scan):
+            # No need to check for channel dimension for MRI data
+            rotated = random_rotation(img_slice, max_rotations)
+            flipped = horizontal_flip(rotated, flip_prob)
+            augmented_batch[scan_idx, slice_idx] = flipped
+
+    # Update the original data array with the augmented batch
+    all = augmented_batch
     
     model_path = os.path.join('models', 'imageclassifier11.h5')
     model = load_model(model_path)
@@ -60,6 +73,19 @@ def main():
 
     # duration is the number of milliseconds between frames; this is 40 frames per second
     im[0].save("public/scan.gif", save_all=True, append_images=im[1:], duration=50, loop=0)
+
+
+def random_rotation(img, max_rotations):
+    # Rotate image by a random number of 90-degree steps
+    k = random.randint(0, max_rotations)  # Choose a random rotation
+    return np.rot90(img, k=k, axes=(0, 1))  # Rotate on the (height, width) plane
+
+def horizontal_flip(img, flip_prob):
+    # Flip image horizontally with a given probability
+    if random.random() < flip_prob:
+        return np.flip(img, axis=1)  # Flip on the width axis
+    return img
+
 
 
 def crop_center(img, cropx, cropy):
