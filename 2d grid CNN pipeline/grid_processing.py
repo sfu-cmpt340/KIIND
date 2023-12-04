@@ -3,7 +3,6 @@
 import os
 import numpy as np
 from PIL import Image
-import csv
 import shutil
 from tqdm import tqdm
 
