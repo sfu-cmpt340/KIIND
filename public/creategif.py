@@ -56,7 +56,6 @@ def main():
         print("No ACL injury")
     
     print(prediction)
-    print(all)
 
 
     # duration is the number of milliseconds between frames; this is 40 frames per second
