@@ -1,4 +1,4 @@
-<img width="1537" alt="image" src="https://github.com/sfu-cmpt340/project_18/assets/65922310/cef93a78-5a7a-4233-aa02-e35fc0495aa1"><img width="1537" alt="image" src="https://github.com/sfu-cmpt340/project_18/assets/65922310/a88cfeb2-7a04-4854-ad82-593866509f1a">#Knee Injury Detection (KID)
+#Knee Injury Detection (KID)
 # Deep Knee Injury Detection (DKID) ??
 
 Add a 1-2 line summary of your project here.
