@@ -81,7 +81,7 @@ app.post("/fileUpload", (req, res) =>{
 
                             let options = {
                                 // args: [req.body.file] // too long
-                                args: "file upload"
+                                args: "acl"
                             }
                             var d;
                             PythonShell.run('public/creategif.py', options).then(messages=>{
@@ -138,7 +138,7 @@ app.post("/fileUpload2", (req, res) =>{
 
                             let options = {
                                 // args: [req.body.file] // too long
-                                args: "file upload"
+                                args: "meniscus"
                             }
                             var d;
                             PythonShell.run('public/creategif.py', options).then(messages=>{

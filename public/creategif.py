@@ -11,6 +11,8 @@ from tensorflow.keras.models import load_model
 import random
  
 def main():
+    threshold = [0.6039676070213318, 0.43964335322380066, 0.46997469663619995]
+    injuryType = sys.argv[1]
     im = []
     image_array = np.load('uploads/data_a.npy')
     image_array_s = np.load('uploads/data_s.npy')
@@ -59,14 +61,24 @@ def main():
     meniscus_pred = prediction[2]
 
 
-    if acl_pred > 0.55:
-        print("ACL injury")
-        print("type ", type(acl_pred))
-    elif abnormal_pred > 0.55:
-        print("No ACL injury, but has abnormalities")
-        
-    else:
-        print("No ACL injury")
+    if injuryType == 'acl':
+        if acl_pred >= threshold[1]:
+            print("ACL injury")
+            # print("type ", type(acl_pred))
+        elif abnormal_pred >= threshold[0]:
+            print("No ACL injury, but has abnormalities")
+            
+        else:
+            print("No ACL injury")
+    elif injuryType == 'meniscus':
+        if meniscus_pred >= threshold[2]:
+            print("Meniscus injury")
+            # print("type ", type(acl_pred))
+        elif abnormal_pred >= threshold[0]:
+            print("No meniscus injury, but has abnormalities")
+            
+        else:
+            print("No meniscus injury")
     
     print(prediction)
 
