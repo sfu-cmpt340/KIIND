@@ -32,12 +32,12 @@ def main():
     all = np.array([crop_center(all, 160, 160) ])
 
 
-    batch_min = all.min()
-    batch_max = all.max()
-    all = (all.astype(np.float32) - batch_min) / (batch_max - batch_min)
+    # batch_min = all.min()
+    # batch_max = all.max()
+    # all = (all.astype(np.float32) - batch_min) / (batch_max - batch_min)
 
     
-    model_path = os.path.join('models', 'imageclassifier5.h5')
+    model_path = os.path.join('models', 'imageclassifier11.h5')
     model = load_model(model_path)
     prediction = model.predict(all, verbose=0)
     prediction = prediction[0]
@@ -71,7 +71,7 @@ def crop_center(img, cropx, cropy):
     # Ensure the cropped image has the same number of channels
     return img[:, starty:starty+cropy, startx:startx+cropx, :]
 
-def pad_slices(scan, target_slices= 50):
+def pad_slices(scan, target_slices= 30):
     # Get the current number of slices
     current_slices = scan.shape[0]
     # Check if padding is necessary
