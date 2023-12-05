@@ -31,8 +31,6 @@ Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen record
 <a name="demo"></a>
 ## 1. Demo of 3D CNN prediction (to be updated)....
 
-A minimal example to showcase your work
-
 ```python
 import tensorflow as tf
 from tensorflow.keras.models import load_model
@@ -85,10 +83,8 @@ Explain briefly what files are found where
 ```bash
 repository
 ├── 2d grid CNN pipeline         ## 
-├── data                         ## test data (DELETE)
-├── imageclassifier12            ## 
 ├── models                       ## the model hooked up to the website
-├── MRI Model Builder            ## If you use conda
+├── MRI Model Builder            ## model building script/notebook
 ├── public                       ## stylesheets, images
 ├── scripts                      ## additional scripts
 ├── uploads                      ## stores the uploaded data from the website
@@ -112,6 +108,7 @@ pip install requirements2.txt
 npm install
 node index.js
 ```
+Then go to http://localhost:3000/
 
 <a name="repro"></a>
 ## 3. Reproduction
