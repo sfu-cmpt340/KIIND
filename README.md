@@ -1,7 +1,7 @@
 #Knee Injury Detection (KID)
 # Deep Knee Injury Detection (DKID) ??
 
-Add a 1-2 line summary of your project here.
+We have developed a Convolutional Neural Network (CNN) model designed to analyze knee Magnetic Resonance Imaging (MRI) scans. The model provides outputs indicating the presence of an Anterior Cruciate Ligament (ACL) injury, a meniscus injury, an abnormality, or the absence of any injuries/abnormalities.
 
 ## Important Links
 <!-- 
