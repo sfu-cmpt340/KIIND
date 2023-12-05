@@ -114,12 +114,25 @@ Then go to http://localhost:3000/
 ## 3. Reproduction
 First request the dataset from https://stanfordmlgroup.github.io/competitions/mrnet/ and store it (folder will be named 'MRNet-v1.0') inside the project folder
 
+Make the model:
+```bash
+$ python scripts/makeModel.py
+...
+Model saved in /models
+```
+
+Evaluate the model:
+```bash
+$ python scripts/evaluateModel.py
+...
+Precision: 0.6810, Recall: 0.7603, Accuracy: 0.7434, AUC: 0.8147
+```
+
+
 ```bash
 $ python scripts/runModel.py
-Loaded 1130 scans from MRNet-v1.0/train/axial
-Loaded 1130 scans from MRNet-v1.0/train/coronal
-Loaded 1130 scans from MRNet-v1.0/train/sagittal
 ...
+Predictions saved to predictions.csv
 ```
 
 

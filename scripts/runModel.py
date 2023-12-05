@@ -15,8 +15,8 @@ from sklearn.metrics import roc_curve, RocCurveDisplay, auc
 
 
 def main():
-    data = load_data('MRNet-v1.0/train')
-    labels = load_labels('MRNet-v1.0/train-abnormal.csv', 'MRNet-v1.0/train-acl.csv', 'MRNet-v1.0/train-meniscus.csv')
+    data = load_data('../MRNet-v1.0/train')
+    labels = load_labels('../MRNet-v1.0/train-abnormal.csv', '../MRNet-v1.0/train-acl.csv', '../MRNet-v1.0/train-meniscus.csv')
     # Assuming 'data' is your array of MRI scans
     batch_size = 10  # Set your batch size
 
@@ -42,6 +42,7 @@ def main():
     model = load_model(model_path)
 
     y_pred = model.predict(data)
+    np.savetxt("predictions.csv", y_pred, delimiter=",")
     display = []
     optimal_thresholds = find_optimal_thresholds(labels, y_pred)
     # plot ROC curve
@@ -50,6 +51,8 @@ def main():
     display[2].plot()
 
     y_pred, correctness = apply_thresholds_and_evaluate(labels, y_pred, optimal_thresholds)
+
+    print("Predictions saved to predictions.csv")
 
 
 
