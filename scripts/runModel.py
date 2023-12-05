@@ -15,8 +15,8 @@ from sklearn.metrics import roc_curve, RocCurveDisplay, auc
 
 
 def main():
-    data = load_data('../MRNet-v1.0/train')
-    labels = load_labels('../MRNet-v1.0/train-abnormal.csv', '../MRNet-v1.0/train-acl.csv', '../MRNet-v1.0/train-meniscus.csv')
+    data = load_data('../MRNet-v1.0/valid')
+    labels = load_labels('../MRNet-v1.0/valid-abnormal.csv', '../MRNet-v1.0/valid-acl.csv', '../MRNet-v1.0/valid-meniscus.csv')
     # Assuming 'data' is your array of MRI scans
     batch_size = 10  # Set your batch size
 

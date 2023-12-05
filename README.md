@@ -128,7 +128,7 @@ $ python scripts/evaluateModel.py
 Precision: 0.6810, Recall: 0.7603, Accuracy: 0.7434, AUC: 0.8147
 ```
 
-
+Using the model to predict:
 ```bash
 $ python scripts/runModel.py
 ...
