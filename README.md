@@ -4,14 +4,14 @@
 Add a 1-2 line summary of your project here.
 
 ## Important Links
-
+<!-- 
 | [Timesheet](https://google.com) | [Slack channel](https://google.com) | [Project report](https://google.com) |
-|-----------|---------------|-------------------------|
+|-----------|---------------|-------------------------| -->
 
 
 - Timesheet: https://1sfu-my.sharepoint.com/:x:/g/personal/kabhishe_sfu_ca/EZzRYG5ZelJBttJNVGDTbmwBpqNJtml92_OUUOLpUCn4gw?e=o9aVyx
 - Slack channel: https://app.slack.com/client/T05JYJAF22G/C05TE8QMLCT/thread/C05TE8QMLCT-1700365574.444619
-- Project report: Link your Overleaf project report document.
+- Project report: https://www.overleaf.com/project/650ca31f1a3e9fd765a19394
 
 
 ## Video/demo/GIF
@@ -34,10 +34,12 @@ Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen record
 A minimal example to showcase your work
 
 ```python
-from amazing import amazingexample
-imgs = amazingexample.demo()
-for img in imgs:
-    view(img)
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+
+model_path = os.path.join('models', 'imageclassifier11.h5')
+model = load_model(model_path)
+prediction = model.predict(data)
 ```
 <a name="demo"></a>
 ## Demo of 2D image grid processing from .npy 3D MRI volumes
@@ -82,39 +84,47 @@ Explain briefly what files are found where
 
 ```bash
 repository
-├── src                          ## source code of the package itself
-├── scripts                      ## scripts, if needed
-├── docs                         ## If needed, documentation   
+├── 2d grid CNN pipeline         ## 
+├── data                         ## test data (DELETE)
+├── imageclassifier12            ## 
+├── models                       ## the model hooked up to the website
+├── MRI Model Builder            ## If you use conda
+├── public                       ## stylesheets, images
+├── scripts                      ## additional scripts
+├── uploads                      ## stores the uploaded data from the website
+├── views                        ## html pages
 ├── README.md                    ## You are here
-├── requirements.yml             ## If you use conda
+├── requirements.txt             ## python libraries to run the script on the website
+
 ```
 
 <a name="installation"></a>
 
 ## 2. Installation
 
-Provide sufficient instructions to reproduce and install your project. 
-Provide _exact_ versions, test on CSIL or reference workstations.
+No need to install anything, simply go to https://cmpt340-project-758b976dd842.herokuapp.com/
 
+However, if you would like to run the app locally:
 ```bash
-git clone $THISREPO
-cd $THISREPO
-conda env create -f requirements.yml
-conda activate amazing
+git clone git@github.com:sfu-cmpt340/project_18.git
+cd project_18
+pip install requirements2.txt
+npm install
+node index.js
 ```
 
 <a name="repro"></a>
 ## 3. Reproduction
-Demonstrate how your work can be reproduced, e.g. the results in your report.
+First request the dataset from https://stanfordmlgroup.github.io/competitions/mrnet/ and store it (folder will be named 'MRNet-v1.0') inside the project folder
+
 ```bash
-mkdir tmp && cd tmp
-wget https://yourstorageisourbusiness.com/dataset.zip
-unzip dataset.zip
-conda activate amazing
-python evaluate.py --epochs=10 --data=/in/put/dir
+$ python scripts/runModel.py
+Loaded 1130 scans from MRNet-v1.0/train/axial
+Loaded 1130 scans from MRNet-v1.0/train/coronal
+Loaded 1130 scans from MRNet-v1.0/train/sagittal
+...
 ```
-Data can be found at ...
-Output will be saved in ...
+
 
 <a name="guide"></a>
 ## 4. Guidance

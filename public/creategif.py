@@ -11,7 +11,8 @@ from tensorflow.keras.models import load_model
 import random
  
 def main():
-    threshold = [0.6039676070213318, 0.43964335322380066, 0.46997469663619995]
+    # threshold = [0.6039676070213318, 0.43964335322380066, 0.46997469663619995]
+    threshold = [0.6937171220779419, 0.5300928354263306, 0.5433405637741089]
     injuryType = sys.argv[1]
     im = []
     image_array = np.load('uploads/data_a.npy')
