@@ -104,7 +104,7 @@ However, if you would like to run the app locally:
 ```bash
 git clone git@github.com:sfu-cmpt340/project_18.git
 cd project_18
-pip install requirements2.txt
+pip install requirements.txt
 npm install
 node index.js
 ```
@@ -113,6 +113,11 @@ Then go to http://localhost:3000/
 <a name="repro"></a>
 ## 3. Reproduction
 First request the dataset from https://stanfordmlgroup.github.io/competitions/mrnet/ and store it (folder will be named 'MRNet-v1.0') inside the project folder
+
+Install requirements:
+```bash
+pip install requirements2.txt
+```
 
 Make the model:
 ```bash
