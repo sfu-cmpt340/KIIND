@@ -25,7 +25,7 @@ Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen record
 
 3. [Reproducing this project](#repro)
 
-4. [Guidance](#guide)
+<!-- 4. [Guidance](#guide) -->
 
 
 <a name="demo"></a>
@@ -123,7 +123,7 @@ Loaded 1130 scans from MRNet-v1.0/train/sagittal
 ```
 
 
-<a name="guide"></a>
+<!-- <a name="guide"></a>
 ## 4. Guidance
 
 - Use [git](https://git-scm.com/book/en/v2)
@@ -135,4 +135,4 @@ Loaded 1130 scans from MRNet-v1.0/train/sagittal
     - Do NOT use the repository to upload data
 - Use [VSCode](https://code.visualstudio.com/) or a similarly powerful IDE
 - Use [Copilot for free](https://dev.to/twizelissa/how-to-enable-github-copilot-for-free-as-student-4kal)
-- Sign up for [GitHub Education](https://education.github.com/) 
+- Sign up for [GitHub Education](https://education.github.com/)  -->
