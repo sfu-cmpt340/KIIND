@@ -13,6 +13,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, RocCurveDisplay, auc
 
+display = []
 
 def main():
     data = load_data('MRNet-v1.0/valid')
@@ -43,7 +44,6 @@ def main():
 
     y_pred = model.predict(data)
     np.savetxt("predictions.csv", y_pred, delimiter=",")
-    display = []
     optimal_thresholds = find_optimal_thresholds(labels, y_pred)
     # plot ROC curve
     display[0].plot()
@@ -82,7 +82,6 @@ def apply_thresholds_and_evaluate(y_true, y_pred_probs, thresholds):
 
 def find_optimal_thresholds(y_true, y_scores):
     optimal_thresholds = []
-    
     # Assuming y_true and y_scores are 2D arrays with each column representing a label
     for label in range(y_true.shape[1]):  # Loop over columns (labels) not rows
         fpr, tpr, thresholds = roc_curve(y_true[:, label], y_scores[:, label])
