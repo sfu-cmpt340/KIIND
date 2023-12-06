@@ -28,8 +28,8 @@ def main():
     for gpu in gpus: 
         tf.config.experimental.set_memory_growth(gpu, True)
     tf.config.list_physical_devices('GPU')
-    data = load_data('../MRNet-v1.0/train')
-    labels = load_labels('../MRNet-v1.0/train-abnormal.csv', '../MRNet-v1.0/train-acl.csv', '../MRNet-v1.0/train-meniscus.csv')
+    data = load_data('MRNet-v1.0/train')
+    labels = load_labels('MRNet-v1.0/train-abnormal.csv', 'MRNet-v1.0/train-acl.csv', 'MRNet-v1.0/train-meniscus.csv')
     # Assuming 'data' is your array of MRI scans
     batch_size = 10  # Set your batch size
 

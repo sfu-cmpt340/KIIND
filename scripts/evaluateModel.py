@@ -6,8 +6,8 @@ import numpy as np
 
 
 def main():
-    data = load_data('../MRNet-v1.0/train')
-    labels = load_labels('../MRNet-v1.0/train-abnormal.csv', '../MRNet-v1.0/train-acl.csv', '../MRNet-v1.0/train-meniscus.csv')
+    data = load_data('MRNet-v1.0/train')
+    labels = load_labels('MRNet-v1.0/train-abnormal.csv', 'MRNet-v1.0/train-acl.csv', 'MRNet-v1.0/train-meniscus.csv')
 
 
     train_size = int(len(data)*.7)
