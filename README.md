@@ -97,6 +97,8 @@ repository
 ├── website_test_data            ## some sample data to test the website with
 ├── README.md                    ## You are here
 ├── requirements.txt             ## python libraries to run the script on the website
+├── requirements2.txt            ## python libraries to run the model training/evaluating scripts
+
 
 ```
 
@@ -104,7 +106,8 @@ repository
 
 ## 2. Installation
 
-No need to install anything, simply go to https://cmpt340-project-758b976dd842.herokuapp.com/
+No need to install anything, simply go to https://cmpt340-project-758b976dd842.herokuapp.com/ 
+
 There are some sample test data in /website_test_data that you can upload onto the website
 
 However, if you would like to run the app locally:
