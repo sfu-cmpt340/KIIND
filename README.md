@@ -16,7 +16,9 @@ We have developed a Convolutional Neural Network (CNN) model designed to analyze
 
 
 ## Video/demo/GIF
-Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen recording or even using PowerPoint with audio or with text, showcasing your work.
+
+
+
 <p align="center">
 
   <img src="(https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif)" width="400" >
