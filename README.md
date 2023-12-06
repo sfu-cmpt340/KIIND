@@ -12,6 +12,7 @@ We have developed a Convolutional Neural Network (CNN) model designed to analyze
 - Timesheet: https://1sfu-my.sharepoint.com/:x:/g/personal/kabhishe_sfu_ca/EZzRYG5ZelJBttJNVGDTbmwBpqNJtml92_OUUOLpUCn4gw?e=o9aVyx
 - Slack channel: https://app.slack.com/client/T05JYJAF22G/C05TE8QMLCT/thread/C05TE8QMLCT-1700365574.444619
 - Project report: https://www.overleaf.com/project/650ca31f1a3e9fd765a19394
+- Website: https://cmpt340-project-758b976dd842.herokuapp.com/
 
 
 ## Video/demo/GIF
