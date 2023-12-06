@@ -8,7 +8,28 @@ import numpy as np
 def main():
     data = load_data('MRNet-v1.0/train')
     labels = load_labels('MRNet-v1.0/train-abnormal.csv', 'MRNet-v1.0/train-acl.csv', 'MRNet-v1.0/train-meniscus.csv')
+    batch_size = 10  # Set your batch size
 
+    # Initialize a new array to hold the cropped images
+    cropped_data = np.zeros((data.shape[0], data.shape[1], 160, 160, data.shape[-1]), dtype=data.dtype)
+
+    # Loop over the data in batches for cropping
+    for start in range(0, len(data), batch_size):
+        end = start + batch_size
+        batch = data[start:end]
+
+        # Apply cropping to each image in the batch
+        cropped_batch = np.array([crop_center(img, 160, 160) for img in batch])
+
+        # Update the cropped_data array with the cropped_batch
+        cropped_data[start:end] = cropped_batch
+
+        # Feedback to user
+        print(f"Cropped batch from index {start} to {end}")
+
+    # Now 'cropped_data' contains the cropped images
+    # You can continue to use 'cropped_data' for further processing such as scaling
+    data = cropped_data
 
     train_size = int(len(data)*.7)
     val_size = int(len(data)*.2)
@@ -45,7 +66,7 @@ def main():
 
     batch_size = 5
 
-    model_path = os.path.join('../models/imageclassifier11.h5')
+    model_path = os.path.join('models/imageclassifier11.h5')
     model = load_model(model_path)
 
     for i in range(0, len(test[0]), batch_size):  # test[0] is the data component of the test set
@@ -71,7 +92,14 @@ def main():
     # Print results
     print(f'Precision: {precision_result:.4f}, Recall: {recall_result:.4f}, Accuracy: {accuracy_result:.4f}, AUC: {auc_result:.4f}')
 
-
+def crop_center(img, cropx, cropy):
+    # Assuming img has shape (slices, height, width, channels)
+    d, y, x, c = img.shape
+    startx = x // 2 - (cropx // 2)
+    starty = y // 2 - (cropy // 2)
+    
+    # Ensure the cropped image has the same number of channels
+    return img[:, starty:starty+cropy, startx:startx+cropx, :]
 
 def load_labels(abnormal_path, acl_path, meniscus_path):
     

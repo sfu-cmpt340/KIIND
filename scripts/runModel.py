@@ -38,7 +38,7 @@ def main():
         print(f"Cropped batch from index {start} to {end}")
 
     data = cropped_data
-    model_path = os.path.join('../models/imageclassifier11.h5')
+    model_path = os.path.join('models/imageclassifier11.h5')
     model = load_model(model_path)
 
     y_pred = model.predict(data)
