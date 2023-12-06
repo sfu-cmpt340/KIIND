@@ -13,13 +13,15 @@ We have developed a Convolutional Neural Network (CNN) model designed to analyze
 - Slack channel: https://app.slack.com/client/T05JYJAF22G/C05TE8QMLCT/thread/C05TE8QMLCT-1700365574.444619
 - Project report: https://www.overleaf.com/project/650ca31f1a3e9fd765a19394
 - Website: https://cmpt340-project-758b976dd842.herokuapp.com/
+- Demo video: https://www.youtube.com/watch?v=40N3V82554M
 
 
 ## Video/demo/GIF
 
 <img style="align:center" src="https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif" width="400" >
 
-[![Watch the video](https://img.youtube.com/vi/v=40N3V82554M/maxresdefault.jpg)](https://www.youtube.com/watch?v=40N3V82554M)
+<!-- [![Watch the demo](https://img.youtube.com/vi/v=40N3V82554M/maxresdefault.jpg)](https://www.youtube.com/watch?v=40N3V82554M) -->
+[![Watch the demo]](https://www.youtube.com/watch?v=40N3V82554M)
 
 ## Table of Contents
 1. [Demo](#demo)
