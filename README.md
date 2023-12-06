@@ -115,7 +115,7 @@ First make sure you have Node.js installed (https://nodejs.org/en/download)
 ```bash
 git clone git@github.com:sfu-cmpt340/project_18.git
 cd project_18
-pip install requirements.txt
+pip install -r requirements.txt
 npm install
 node index.js
 ```
@@ -127,7 +127,7 @@ First request the dataset from https://stanfordmlgroup.github.io/competitions/mr
 
 Install requirements:
 ```bash
-pip install requirements2.txt
+pip install -r requirements2.txt
 ```
 
 Make the model:
