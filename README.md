@@ -20,8 +20,7 @@ We have developed a Convolutional Neural Network (CNN) model designed to analyze
 
 <img style="align:center" src="https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif" width="400" >
 
-<!-- [![Watch the demo](https://img.youtube.com/vi/v=40N3V82554M/maxresdefault.jpg)](https://www.youtube.com/watch?v=40N3V82554M) -->
-[![Watch the demo]](https://www.youtube.com/watch?v=40N3V82554M)
+[![Watch the demo](https://img.youtube.com/vi/v=40N3V82554M/maxresdefault.jpg)](https://www.youtube.com/watch?v=40N3V82554M)
 
 ## Table of Contents
 1. [Demo](#demo)
@@ -87,13 +86,15 @@ Explain briefly what files are found where
 
 ```bash
 repository
-├── 2d_grid_CNN_pipeline         ## 2D collage/grid CNN and related functions
+├── 2d grid CNN pipeline         ## 2D collage/grid CNN and related functions
 ├── models                       ## the model hooked up to the website
+├── models2                      ## other models
 ├── MRI Model Builder            ## model building script/notebook
 ├── public                       ## stylesheets, images
 ├── scripts                      ## additional scripts
 ├── uploads                      ## stores the uploaded data from the website
 ├── views                        ## html pages
+├── website_test_data            ## some sample data to test the website with
 ├── README.md                    ## You are here
 ├── requirements.txt             ## python libraries to run the script on the website
 
@@ -104,6 +105,7 @@ repository
 ## 2. Installation
 
 No need to install anything, simply go to https://cmpt340-project-758b976dd842.herokuapp.com/
+There are some sample test data in /website_test_data that you can upload onto the website
 
 However, if you would like to run the app locally:
 ```bash
