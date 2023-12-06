@@ -17,11 +17,8 @@ We have developed a Convolutional Neural Network (CNN) model designed to analyze
 
 ## Video/demo/GIF
 
-
-
-
-
 <img style="align:center" src="https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif" width="400" >
+[![Watch the video](https://www.youtube.com/watch?v=40N3V82554M/maxresdefault.jpg)](https://www.youtube.com/watch?v=40N3V82554M)
 
 
 
