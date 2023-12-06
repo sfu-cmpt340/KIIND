@@ -21,7 +21,7 @@ We have developed a Convolutional Neural Network (CNN) model designed to analyze
 
 
 
-<img style="align:center" src="(https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif)" width="400" >
+<img style="align:center" src="https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif" width="400" >
 
 
 
