@@ -1,5 +1,5 @@
-#Knee Injury Detection (KID)
-# Deep Knee Injury Detection (DKID) ??
+<!-- #Knee Injury Detection (KID) -->
+# Knee Injury Neural Network Detector (KINND)
 
 We have developed a Convolutional Neural Network (CNN) model designed to analyze knee Magnetic Resonance Imaging (MRI) scans. The model provides outputs indicating the presence of an Anterior Cruciate Ligament (ACL) injury, a meniscus injury, an abnormality, or the absence of any injuries/abnormalities.
 
@@ -30,7 +30,7 @@ Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen record
 
 
 <a name="demo"></a>
-## 1. Demo of 3D CNN prediction (to be updated)....
+## 1. Demo of 3D CNN prediction
 
 ```python
 import tensorflow as tf
