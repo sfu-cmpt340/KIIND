@@ -117,3 +117,51 @@ p, h1, h2, h3, li {
   border-width: 4px 0 0;
   background: none;
 }
+
+
+
+#infoButton2  {
+  background-color: #006080;
+
+
+  border: solid transparent;
+  border-radius: 15px;
+  border-width: 0 0 4px;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 15px;
+  transform: translateZ(0);
+  transition: filter .2s;
+  width: 400px;
+  height: 80px;
+  position: absolute;
+  font-size: 24px;
+
+}
+
+#infoButton2:after {
+  background-clip: padding-box;
+  background-color: #007399;
+  
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+
+#infoButton2:hover {
+  filter: brightness(1.05);
+}
+
+#infoButton2:active {
+  border-width: 4px 0 0;
+  background: none;
+}
