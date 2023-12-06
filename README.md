@@ -111,6 +111,7 @@ No need to install anything, simply go to https://cmpt340-project-758b976dd842.h
 There are some sample test data in /MRNet-v1.0 that you can upload onto the website
 
 However, if you would like to run the app locally:
+First make sure you have Node.js installed (https://nodejs.org/en/download)
 ```bash
 git clone git@github.com:sfu-cmpt340/project_18.git
 cd project_18
