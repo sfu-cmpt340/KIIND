@@ -87,7 +87,7 @@ Explain briefly what files are found where
 
 ```bash
 repository
-├── 2d grid CNN pipeline         ## 2D collage/grid CNN 
+├── 2d_grid_CNN_pipeline         ## 2D collage/grid CNN and related functions
 ├── models                       ## the model hooked up to the website
 ├── MRI Model Builder            ## model building script/notebook
 ├── public                       ## stylesheets, images
