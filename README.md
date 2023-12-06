@@ -89,12 +89,12 @@ repository
 ├── 2d grid CNN pipeline         ## 2D collage/grid CNN and related functions
 ├── models                       ## the model hooked up to the website
 ├── models2                      ## other models
-├── MRI Model Builder            ## model building script/notebook
+├── MRI Model Builder            ## model building scripts/notebooks
+├── MRNet-v1.0                   ## some sample data to test the website with
 ├── public                       ## stylesheets, images
 ├── scripts                      ## additional scripts
 ├── uploads                      ## stores the uploaded data from the website
 ├── views                        ## html pages
-├── website_test_data            ## some sample data to test the website with
 ├── README.md                    ## You are here
 ├── requirements.txt             ## python libraries to run the script on the website
 ├── requirements2.txt            ## python libraries to run the model training/evaluating scripts
@@ -108,7 +108,7 @@ repository
 
 No need to install anything, simply go to https://cmpt340-project-758b976dd842.herokuapp.com/ 
 
-There are some sample test data in /website_test_data that you can upload onto the website
+There are some sample test data in /MRNet-v1.0 that you can upload onto the website
 
 However, if you would like to run the app locally:
 ```bash
@@ -122,7 +122,7 @@ Then go to http://localhost:3000/
 
 <a name="repro"></a>
 ## 3. Reproduction
-First request the dataset from https://stanfordmlgroup.github.io/competitions/mrnet/ and store it (folder will be named 'MRNet-v1.0') inside the project folder
+First request the dataset from https://stanfordmlgroup.github.io/competitions/mrnet/ and store it (folder will be named 'MRNet-v1.0', so replace the current folder named that with this one) inside the project folder (we aren't able to include too many datasets due to the Stanford University School of Medicine MRNet Dataset Research Use Agreement)
 
 Install requirements:
 ```bash
