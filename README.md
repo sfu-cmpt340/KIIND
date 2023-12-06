@@ -19,11 +19,11 @@ We have developed a Convolutional Neural Network (CNN) model designed to analyze
 
 
 
-<p style="align:center">
 
-  <img src="(https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif)" width="400" >
 
-</p>
+<img style="align:center" src="(https://github.com/sfu-cmpt340/project_18/blob/main/public/scan.gif)" width="400" >
+
+
 
 ## Table of Contents
 1. [Demo](#demo)
