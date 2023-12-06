@@ -64,19 +64,25 @@ def main():
 
     if injuryType == 'acl':
         if acl_pred >= threshold[1]:
-            print("ACL injury")
+            diagnosis_string = str(round(acl_pred*100, 2)) + "%% chance of ACL injury"
+            print(diagnosis_string)
             # print("type ", type(acl_pred))
         elif abnormal_pred >= threshold[0]:
-            print("No ACL injury, but has abnormalities")
+            diagnosis_string = "No ACL injury, but has " + str(round(abnormal_pred*100, 2)) + "%% chance of abnormalities"
+            print(diagnosis_string)
             
         else:
             print("No ACL injury")
     elif injuryType == 'meniscus':
         if meniscus_pred >= threshold[2]:
-            print("Meniscus injury")
+            # print("Meniscus injury")
+            diagnosis_string = str(round(meniscus_pred*100, 2)) + "%% chance of meniscus injury"
+            print(diagnosis_string)
             # print("type ", type(acl_pred))
         elif abnormal_pred >= threshold[0]:
-            print("No meniscus injury, but has abnormalities")
+            # print("No meniscus injury, but has abnormalities")
+            diagnosis_string = "No meniscus injury, but has " + str(round(abnormal_pred*100, 2)) + "%% chance of abnormalities"
+            print(diagnosis_string)
             
         else:
             print("No meniscus injury")
