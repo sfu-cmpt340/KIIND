@@ -21,7 +21,7 @@ We have developed a Convolutional Neural Network (CNN) model designed to analyze
 [![Watch the video](https://img.youtube.com/vi/v=40N3V82554M/hqdefault.jpg)](https://www.youtube.com/watch?v=40N3V82554M)
 [![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)
 
-[![Demo Doccou alpha](http://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
+[![Watch the video](https://img.youtube.com/vi/v=40N3V82554M/hqdefault.jpg)](https://www.youtube.com/watch?v=40N3V82554M)
 
 ## Table of Contents
 1. [Demo](#demo)
