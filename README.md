@@ -1,5 +1,6 @@
 <!-- #Knee Injury Detection (KID) -->
 # Knee Injury Neural Network Detector (KINND)
+## CMPT 340 - Biomedical Computing
 
 We have developed a Convolutional Neural Network (CNN) model designed to analyze knee Magnetic Resonance Imaging (MRI) scans, earning us an A+ for our term research project. The model provides outputs indicating the presence of an Anterior Cruciate Ligament (ACL) injury, a meniscus injury, an abnormality, or the absence of any injuries/abnormalities.
 
